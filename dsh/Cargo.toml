@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["crates/dsh", "crates/protocol", "crates/vault", "crates/router", "crates/gateway"]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2021"
+license = "MPL-2.0"
+repository = "https://github.com/quietbytehq/LoboBrowser"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

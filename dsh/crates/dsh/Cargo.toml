@@ -1,0 +1,13 @@
+[package]
+name = "dsh"
+description = "DSH agent service for Lobster Browser"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+dsh-protocol = { path = "../protocol" }
+dsh-vault = { path = "../vault" }
+dsh-router = { path = "../router" }
+dsh-gateway = { path = "../gateway" }

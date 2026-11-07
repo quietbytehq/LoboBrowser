@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  dsh:
+    name: DSH (Rust)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Format
+        run: cargo fmt --check
+      - name: Lint
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Test
+        run: cargo test
+
+  # The Firefox build job is added in Phase 0 once a local build works.
+  # A full Firefox build needs more disk and time than a standard runner offers,
+  # so it will likely need a larger runner or a self-hosted one.

@@ -1,0 +1,10 @@
+[package]
+name = "dsh-gateway"
+description = "Privacy gateway and spending limits for DSH"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+

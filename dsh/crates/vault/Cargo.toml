@@ -1,0 +1,10 @@
+[package]
+name = "dsh-vault"
+description = "API key vault for DSH, backed by the OS keychain"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+

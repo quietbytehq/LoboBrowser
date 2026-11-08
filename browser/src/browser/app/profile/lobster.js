@@ -34,3 +34,6 @@ pref("browser.search.separatePrivateDefault.ui.enabled", true);
 pref("browser.tabs.unloadOnLowMemory", true);
 // TODO (Phase 1): add tuned network and cache settings after measuring
 // startup time and RAM against stock Firefox. Change one thing at a time.
+
+// --- New tab and home: Lobster's own page (see browser/extensions/newtab/prerendered/lobster-newtab.html) ---
+pref("browser.startup.homepage.abouthome_cache.enabled", false);

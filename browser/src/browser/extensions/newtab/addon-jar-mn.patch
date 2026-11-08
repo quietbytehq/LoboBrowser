@@ -1,0 +1,15 @@
+diff --git a/browser/extensions/newtab/addon-jar.mn b/browser/extensions/newtab/addon-jar.mn
+index 31c583a8dc912667e60735fcca8be58f199adc22..ef1fd1b9f6e5eacb72057afd3af2b04191d3bc80 100644
+--- a/browser/extensions/newtab/addon-jar.mn
++++ b/browser/extensions/newtab/addon-jar.mn
+@@ -27,6 +27,10 @@ browser.jar:
+   builtin-addons/newtab/prerendered/activity-stream-debug.html (./prerendered/activity-stream-debug.html)
+ #endif
+   builtin-addons/newtab/prerendered/activity-stream-noscripts.html (./prerendered/activity-stream-noscripts.html)
++  builtin-addons/newtab/prerendered/lobster-newtab.html (./prerendered/lobster-newtab.html)
++  builtin-addons/newtab/prerendered/lobster-newtab.css (./prerendered/lobster-newtab.css)
++  builtin-addons/newtab/prerendered/lobster-newtab.js (./prerendered/lobster-newtab.js)
++  builtin-addons/newtab/prerendered/lobster-mark.svg (./prerendered/lobster-mark.svg)
+ 
+ # The following are resources that exist in other component folders that are
+ # included in the newtab resources at build time. Specifically, these are for

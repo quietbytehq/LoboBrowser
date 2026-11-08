@@ -57,3 +57,10 @@ cargo test
 2. `./node_modules/.bin/surfer download && ./node_modules/.bin/surfer import`
 3. Fix any patches that fail to apply.
 4. Build, run, and smoke-test before committing.
+
+### Defaults and policies
+
+- `src/browser/app/profile/lobster.js` holds Lobster's default prefs. It is pulled into Firefox's defaults by `src/browser/app/profile/firefox-js.patch` (an `#include` at the end of `firefox.js`).
+- `distribution/policies.json` holds enterprise policies (default search engines, uBlock Origin). `scripts/post-build.sh` copies it to `dist/bin/distribution/` after each build; packages must ship the same folder.
+- Check active policies in the browser at `about:policies`.
+- Note: after `surfer import`, the next build has sometimes recompiled almost everything (about 40-70 min). The cause is not yet confirmed; suspect the branding folder being recreated on import.

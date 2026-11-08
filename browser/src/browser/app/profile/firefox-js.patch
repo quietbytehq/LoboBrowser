@@ -1,0 +1,11 @@
+diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
+index d55a5b052a920b39da163f902d8e139d4a91ebbc..41989f66364ad760fab47bedb3825991863222cf 100644
+--- a/browser/app/profile/firefox.js
++++ b/browser/app/profile/firefox.js
+@@ -3630,3 +3630,6 @@ pref("distribution.mozillaonline.ignore", true);
+ #ifdef XP_MACOSX
+   pref("browser.macAppMenu.setAsDefaultShown", false);
+ #endif
++
++// Lobster Browser defaults
++#include lobster.js

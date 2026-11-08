@@ -40,8 +40,9 @@ LoboBrowser/
 ├── browser/            Firefox fork (managed with surfer)
 │   ├── patches/        Lobster changes to Firefox, as plain patch files
 │   ├── branding/       Names, icons, splash, about page
-│   ├── prefs/          Default preferences (privacy, speed, search)
-│   └── policies/       Enterprise policies (bundled uBlock Origin, telemetry off)
+│   ├── src/            Lobster files copied into Firefox (default prefs and their patch)
+│   ├── configs/        Build settings and the Lobster branding
+│   └── distribution/   Enterprise policies (search engines, uBlock Origin, telemetry off)
 ├── dsh/                DSH agent engine (Rust workspace)
 │   └── crates/
 │       ├── dsh/        Service binary: starts DSH, wires the parts together

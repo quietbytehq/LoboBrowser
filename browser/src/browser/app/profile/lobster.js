@@ -1,5 +1,6 @@
 // Lobster Browser default preferences.
-// Shipped into the build as a default-prefs file; users can still change these in about:config.
+// Included at the end of Firefox's default prefs (browser/app/profile/firefox.js),
+// so these override Firefox's defaults. Users can still change them in about:config.
 // Grouped by purpose. Each line should have a reason; remove anything that breaks sites.
 
 // --- Telemetry and studies: off ---
@@ -24,9 +25,8 @@ pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 pref("browser.ml.chat.enabled", false);
 
 // --- Search: separate default engine for private windows ---
-// Normal windows default to Google (see policies.json).
-// Private windows default to DuckDuckGo; the engine itself is set in the search
-// configuration patch (browser/patches/), since there is no single pref for it.
+// Normal windows default to Google, private windows to DuckDuckGo
+// (set by the SearchEngines policy in browser/distribution/policies.json).
 pref("browser.search.separatePrivateDefault", true);
 pref("browser.search.separatePrivateDefault.ui.enabled", true);
 

@@ -2,9 +2,9 @@
   "policies": {
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
-    "DisablePocket": true,
     "SearchEngines": {
-      "Default": "Google"
+      "Default": "Google",
+      "DefaultPrivate": "DuckDuckGo"
     },
     "ExtensionSettings": {
       "uBlock0@raymondhill.net": {

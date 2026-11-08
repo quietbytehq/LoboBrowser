@@ -11,7 +11,17 @@
     "windowsUseSymbolicLinks": false
   },
   "addons": {},
-  "brands": {},
+  "brands": {
+    "lobster": {
+      "backgroundColor": "#0a1a38",
+      "brandShorterName": "Lobster",
+      "brandShortName": "Lobster",
+      "brandFullName": "Lobster Browser",
+      "release": {
+        "displayVersion": "0.1.0"
+      }
+    }
+  },
   "license": {
     "ignoredFiles": [
       ".*\\.json"

@@ -1,0 +1,21 @@
+{
+  "name": "Lobster Browser",
+  "vendor": "Quietbyte",
+  "appId": "io.github.quietbytehq.lobster",
+  "binaryName": "lobster",
+  "version": {
+    "product": "firefox-esr",
+    "version": "153.6.0esr"
+  },
+  "buildOptions": {
+    "windowsUseSymbolicLinks": false
+  },
+  "addons": {},
+  "brands": {},
+  "license": {
+    "ignoredFiles": [
+      ".*\\.json"
+    ],
+    "licenseType": "MPL-2.0"
+  }
+}

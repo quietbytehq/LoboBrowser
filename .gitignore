@@ -18,3 +18,8 @@ obj-*/
 .env
 *.key
 *.pem
+
+# surfer working folders and build logs
+/browser/.dotbuild/
+/browser/firefox-*/
+/browser/build-logs/

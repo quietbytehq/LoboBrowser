@@ -12,24 +12,36 @@ The first Firefox build can take one to several hours depending on your CPU. Lat
 
 ## 1. Browser (Firefox ESR fork)
 
-The browser is managed with [surfer](https://github.com/zen-browser/surfer), the open-source fork tool used by Zen Browser.
-We pin surfer to a known version so builds stay reproducible.
+The browser is managed with [surfer](https://github.com/zen-browser/surfer) (pinned to 1.14.9 in `browser/package.json`), the open-source fork tool used by Zen Browser. The project is already set up: `browser/surfer.json` picks Firefox ESR 153.6.0esr and names the app Lobster, and `browser/configs/` holds the build settings.
 
-> **Verify against surfer's own README before first use** — command names and project setup can change between surfer versions.
-
-Typical flow:
+> Always run surfer through `./node_modules/.bin/surfer`, not a bare `npx surfer`: an unrelated npm package is also called "surfer", and npx will fetch it if the local install is missing.
 
 ```bash
 cd browser
-npm install                 # installs the pinned surfer version
-npx surfer setup-project    # first time only: creates the project config for Firefox ESR
-npx surfer download         # downloads the Firefox ESR source
-npx surfer import           # applies patches/ and branding/
-npx surfer bootstrap        # installs Firefox build dependencies
-npx surfer build            # builds the browser
-npx surfer run              # runs your build
-npx surfer package          # makes a distributable package
+npm install --include=dev                 # installs surfer (see note below)
+./node_modules/.bin/surfer download       # downloads and unpacks the Firefox ESR source (~800 MB)
+./node_modules/.bin/surfer import         # applies src/, patches/ and branding/
+./node_modules/.bin/surfer build          # builds; downloads compilers on first run
+./node_modules/.bin/surfer run            # runs your build
 ```
+
+The built browser ends up at `browser/engine/obj-x86_64-pc-linux-gnu/dist/bin/lobster`.
+
+### Notes from the first build
+
+- **`--include=dev` matters.** If your shell has `NODE_ENV=production`, npm silently skips surfer (a dev dependency).
+- **Memory.** The largest Rust step needs about 7–8 GB on its own. With 14 GB of RAM, the build is limited to 4 jobs (`configs/common/mozconfig`) and needs extra swap. A temporary 16 GB swap file was enough:
+  ```bash
+  sudo fallocate -l 16G /swapfile-build && sudo chmod 600 /swapfile-build
+  sudo mkswap /swapfile-build && sudo swapon /swapfile-build
+  ```
+  Close heavy apps while building.
+- **Time.** The first build took about 1 hour of compiling on a 16-thread laptop, plus downloads (source and compilers, about 3 GB in total). Later builds are much faster.
+- **sccache** is switched off in `configs/linux/mozconfig` for now; enable it once installed to speed up rebuilds.
+- **Quick check without a window:**
+  ```bash
+  ./engine/obj-x86_64-pc-linux-gnu/dist/bin/lobster --headless --screenshot out.png https://example.org
+  ```
 
 ## 2. DSH (Rust)
 
@@ -42,6 +54,6 @@ cargo test
 ## Updating to a new Firefox ESR release
 
 1. Change the ESR version in the surfer project config.
-2. `npx surfer download && npx surfer import`
+2. `./node_modules/.bin/surfer download && ./node_modules/.bin/surfer import`
 3. Fix any patches that fail to apply.
 4. Build, run, and smoke-test before committing.

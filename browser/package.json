@@ -1,0 +1,9 @@
+{
+  "name": "lobster-browser",
+  "private": true,
+  "description": "Lobster Browser: Firefox ESR fork managed with surfer",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "@zen-browser/surfer": "1.14.9"
+  }
+}

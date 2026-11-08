@@ -64,3 +64,8 @@ cargo test
 - `distribution/policies.json` holds enterprise policies (default search engines, uBlock Origin). `scripts/post-build.sh` copies it to `dist/bin/distribution/` after each build; packages must ship the same folder.
 - Check active policies in the browser at `about:policies`.
 - Note: after `surfer import`, the next build has sometimes recompiled almost everything (about 40-70 min). The cause is not yet confirmed; suspect the branding folder being recreated on import.
+
+### Fast rebuilds
+
+- Run `scripts/import.sh` instead of `surfer import`. It imports, then restores the old timestamps on files whose content did not change, so the next build only redoes real changes.
+- The repo changeset is no longer stamped into local builds (`MOZ_SOURCE_CHANGESET`, `MOZ_SOURCE_REPO` and `MOZ_INCLUDE_SOURCE_INFO` are commented out in `configs/common/mozconfig`). It changed with every commit and forced a near-full rebuild each time. Turn them back on for release builds (all three together: `source-repo.h` fails if the repo is set without a changeset).

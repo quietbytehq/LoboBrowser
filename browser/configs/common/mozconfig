@@ -10,10 +10,13 @@ mk_add_options MOZ_MAKE_FLAGS="-j4"
 
 # Misc
 export MOZ_STUB_INSTALLER=1
-export MOZ_INCLUDE_SOURCE_INFO=1
+# Off for local builds: the source changeset changes with every commit and would
+# force a near-full rebuild each time. Turn back on for release builds.
+# export MOZ_INCLUDE_SOURCE_INFO=1
 # Change the below repository to your GitHub repository.
-export MOZ_SOURCE_REPO=https://github.com/quietbytehq/LoboBrowser
-export MOZ_SOURCE_CHANGESET=${changeset}
+# Also off for local builds (source-repo.h needs a changeset when this is set).
+# export MOZ_SOURCE_REPO=https://github.com/quietbytehq/LoboBrowser
+# export MOZ_SOURCE_CHANGESET=${changeset}
 
 # Bootstrap
 ac_add_options --enable-bootstrap

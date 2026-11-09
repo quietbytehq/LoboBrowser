@@ -37,3 +37,12 @@ pref("browser.tabs.unloadOnLowMemory", true);
 
 // --- New tab and home: Lobster's own page (see browser/extensions/newtab/prerendered/lobster-newtab.html) ---
 pref("browser.startup.homepage.abouthome_cache.enabled", false);
+
+// --- Update prefs missing from the surfer-generated branding prefs ---
+// Without app.update.checkInstallTime.days, startup throws before the
+// "first window ready" step, so the new tab page never initialises (blank new tabs).
+// Lobster has no update server yet, so the old-build check is off as well.
+pref("app.update.checkInstallTime", false);
+pref("app.update.checkInstallTime.days", 2);
+pref("app.update.interval", 86400);
+pref("app.update.badgeWaitTime", 0);

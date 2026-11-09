@@ -25,7 +25,7 @@ platforms:
 
 apps:
   lobster-browser:
-    command: lobster/lobster
+    command: lobster   # snapcraft strips the tarball's top "lobster/" folder
     desktop: snap/gui/lobster-browser.desktop   # path inside the snap (meta/gui is added by snapcraft)
     extensions: [gnome]
     environment:
@@ -65,14 +65,4 @@ parts:
       - libasound2t64
       - libpci3
       - libxt6t64
-    prime:
-      - lobster
-      - usr/lib/*/libdbus-glib-1.so*
-      - usr/lib/*/libasound.so*
-      - usr/lib/*/libpci.so*
-      - usr/lib/*/libXt.so*
-  gui:
-    plugin: dump
-    source: snap/gui
-    organize:
-      '*': snap/gui/
+    # (dbus-glib, ALSA, libpci and libXt are loaded at runtime, so the linter calls them unused)

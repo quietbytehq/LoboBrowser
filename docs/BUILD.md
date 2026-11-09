@@ -69,3 +69,13 @@ cargo test
 
 - Run `scripts/import.sh` instead of `surfer import`. It imports, then restores the old timestamps on files whose content did not change, so the next build only redoes real changes.
 - The repo changeset is no longer stamped into local builds (`MOZ_SOURCE_CHANGESET`, `MOZ_SOURCE_REPO` and `MOZ_INCLUDE_SOURCE_INFO` are commented out in `configs/common/mozconfig`). It changed with every commit and forced a near-full rebuild each time. Turn them back on for release builds (all three together: `source-repo.h` fails if the repo is set without a changeset).
+
+### Running a local build directly
+
+Local builds keep many files as symlinks into the source tree. If you start `dist/bin/lobster` directly (not with `surfer run`), set these first, or the content sandbox blocks those files and pages such as the new tab fail with "Access to the file was denied":
+
+```bash
+export MOZ_DEVELOPER_REPO_DIR=$PWD/engine MOZ_DEVELOPER_OBJ_DIR=$PWD/engine/obj-x86_64-pc-linux-gnu
+```
+
+Packaged builds are not affected.

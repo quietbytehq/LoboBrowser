@@ -26,6 +26,9 @@ cp -a "$WORK/lobster" "$APPDIR/usr/lib/lobster"
 cat > "$APPDIR/AppRun" <<'RUN'
 #!/bin/sh
 HERE="$(dirname "$(readlink -f "$0")")"
+# An AppImage is mounted at a new path each run; without this, Firefox treats every
+# launch as a new installation and creates a fresh profile (first-run page every time).
+export MOZ_LEGACY_PROFILES=1
 exec "$HERE/usr/lib/lobster/lobster" "$@"
 RUN
 chmod +x "$APPDIR/AppRun"

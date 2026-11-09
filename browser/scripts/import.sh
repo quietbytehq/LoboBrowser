@@ -18,6 +18,7 @@ for f in "${FILES[@]}"; do
 done
 
 ./node_modules/.bin/surfer import
+./scripts/fix-branding-urls.sh
 
 kept=0
 for f in "${FILES[@]}"; do

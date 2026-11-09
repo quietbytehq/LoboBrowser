@@ -46,3 +46,6 @@ pref("app.update.checkInstallTime", false);
 pref("app.update.checkInstallTime.days", 2);
 pref("app.update.interval", 86400);
 pref("app.update.badgeWaitTime", 0);
+
+// --- First run: no Mozilla onboarding (the Lobster GitHub page opens instead; set in the branding prefs by scripts/fix-branding-urls.sh) ---
+pref("browser.aboutwelcome.enabled", false);

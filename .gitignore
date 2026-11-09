@@ -25,3 +25,9 @@ obj-*/
 /browser/build-logs/
 /browser/release/
 /browser/locales/
+
+# snapcraft build output
+*.snap
+/parts/
+/prime/
+/stage/

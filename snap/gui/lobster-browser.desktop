@@ -1,0 +1,22 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Lobster Browser
+GenericName=Web Browser
+Comment=Fast, ad-free browser with a private AI agent
+Exec=lobster-browser %u
+Icon=${SNAP}/snap/gui/lobster-browser.png
+Terminal=false
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+StartupWMClass=lobster
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=lobster-browser --new-window %u
+
+[Desktop Action new-private-window]
+Name=New Private Window
+Exec=lobster-browser --private-window %u

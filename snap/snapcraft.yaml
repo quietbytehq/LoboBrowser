@@ -1,0 +1,78 @@
+name: lobster-browser
+title: Lobster Browser
+version: '0.1.0'
+summary: Fast, ad-free Firefox-based browser with a private AI agent
+description: |
+  Lobster Browser is built on Firefox ESR with ad and tracker blocking on by
+  default, telemetry and sponsored content removed, Google search in normal
+  windows and DuckDuckGo in private windows, and a calm, ad-free new tab page.
+
+  This is an early preview. The built-in AI agent (DSH) arrives in a later release.
+  Source and issues: https://github.com/quietbytehq/LoboBrowser
+website: https://github.com/quietbytehq/LoboBrowser
+source-code: https://github.com/quietbytehq/LoboBrowser
+issues: https://github.com/quietbytehq/LoboBrowser/issues
+license: MPL-2.0
+icon: snap/gui/lobster-browser.png
+
+base: core24
+grade: devel          # switch to stable for the first stable release
+confinement: strict
+compression: lzo      # faster first start than xz, at the cost of a larger download
+
+platforms:
+  amd64:
+
+apps:
+  lobster-browser:
+    command: lobster/lobster
+    desktop: snap/gui/lobster-browser.desktop   # path inside the snap (meta/gui is added by snapcraft)
+    extensions: [gnome]
+    environment:
+      MOZ_ENABLE_WAYLAND: '1'
+    plugs:
+      - audio-playback
+      - audio-record
+      - browser-support
+      - camera
+      - cups-control
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - hardware-observe
+      - home
+      - network
+      - opengl
+      - removable-media
+      - screen-inhibit-control
+      - u2f-devices
+      - unity7
+      - upower-observe
+      - wayland
+      - x11
+
+plugs:
+  browser-support:
+    allow-sandbox: true   # lets Lobster use its own content sandbox; needs a Snap Store review request
+
+parts:
+  lobster:
+    plugin: dump
+    # Built by browser/scripts/make-packages.sh (already includes Lobster's policies)
+    source: browser/release/lobster-0.1.0-linux-x86_64.tar.xz
+    stage-packages:
+      - libdbus-glib-1-2
+      - libasound2t64
+      - libpci3
+      - libxt6t64
+    prime:
+      - lobster
+      - usr/lib/*/libdbus-glib-1.so*
+      - usr/lib/*/libasound.so*
+      - usr/lib/*/libpci.so*
+      - usr/lib/*/libXt.so*
+  gui:
+    plugin: dump
+    source: snap/gui
+    organize:
+      '*': snap/gui/

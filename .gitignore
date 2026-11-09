@@ -23,3 +23,5 @@ obj-*/
 /browser/.dotbuild/
 /browser/firefox-*/
 /browser/build-logs/
+/browser/release/
+/browser/locales/

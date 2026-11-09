@@ -86,3 +86,14 @@ Packaged builds are not affected.
 - The splash shows on the first window after each reboot (Linux boot id in `/proc/sys/kernel/random/boot_id`). Setting `lobster.splash.mode`: `boot` (default), `always` or `never`. Click or any key skips it; with reduce-motion it shows the still frame.
 - The throbber sits at the end of the toolbar; a dot orbits the ring while the current tab loads.
 - Chrome files are symlinked into local builds, so edits to them need no rebuild: just restart the browser.
+
+## 3. Linux packages
+
+```bash
+cd browser
+./node_modules/.bin/surfer package     # makes the base tarball in engine/obj-*/dist/
+./scripts/make-packages.sh             # adds the policies and makes release/*.tar.xz and release/*.AppImage
+```
+
+`surfer package` needs `locales/supported-languages` to exist (an empty file is fine; the folder is ignored by git).
+The first `make-packages.sh` run downloads `appimagetool` into `build-logs/tools/`.

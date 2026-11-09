@@ -1,0 +1,18 @@
+diff --git a/browser/base/jar.mn b/browser/base/jar.mn
+index 416391b3ecf22603d8eb0e37957f419a858267a9..2764e5783aaea090deae83837720984feef8f44f 100644
+--- a/browser/base/jar.mn
++++ b/browser/base/jar.mn
+@@ -47,6 +47,13 @@ browser.jar:
+         content/browser/browser-gestureSupport.js           (content/browser-gestureSupport.js)
+         content/browser/browser-init.js                     (content/browser-init.js)
+         content/browser/browser-main.js                     (content/browser-main.js)
++        content/browser/lobster/lobster-chrome.js (content/lobster/lobster-chrome.js)
++        content/browser/lobster/lobster-chrome.css (content/lobster/lobster-chrome.css)
++        content/browser/lobster/splash.html (content/lobster/splash.html)
++        content/browser/lobster/splash.css (content/lobster/splash.css)
++        content/browser/lobster/splash.js (content/lobster/splash.js)
++        content/browser/lobster/throbber-idle.svg (content/lobster/throbber-idle.svg)
++        content/browser/lobster/throbber-busy.svg (content/lobster/throbber-busy.svg)
+         content/browser/browser-menubar.js                  (content/browser-menubar.js)
+         content/browser/browser-pageActions.js              (content/browser-pageActions.js)
+         content/browser/browser-pagestyle.js                (content/browser-pagestyle.js)

@@ -1,0 +1,13 @@
+diff --git a/browser/base/content/browser.xhtml b/browser/base/content/browser.xhtml
+index 661a81551967fb1c67671ab236c8a0c104913fb6..f3bdb96614e1c250a08bdfb9c170dabc84e371e9 100644
+--- a/browser/base/content/browser.xhtml
++++ b/browser/base/content/browser.xhtml
+@@ -102,6 +102,8 @@
+ 
+   <script src="chrome://browser/content/global-scripts.js"></script>
+   <script src="chrome://browser/content/browser-main.js"></script>
++  <link rel="stylesheet" href="chrome://browser/content/lobster/lobster-chrome.css" />
++  <script src="chrome://browser/content/lobster/lobster-chrome.js"></script>
+ </head>
+ <html:body xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ # All sets except for popupsets (commands, keys, and stringbundles)

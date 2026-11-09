@@ -1,0 +1,32 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Splash shown over the first window after a reboot */
+#lobster-splash {
+  position: fixed; inset: 0; z-index: 2147483647;
+  width: 100%; height: 100%; border: 0; margin: 0;
+  background: #050a17;
+  transition: opacity 300ms ease;
+}
+#lobster-splash.lobster-fade { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { #lobster-splash { transition: none; } }
+
+/* Classic throbber at the end of the toolbar */
+#lobster-throbber {
+  display: flex; align-items: center; justify-content: center;
+  padding-inline: 6px 8px;
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+#lobster-throbber > img { width: 20px; height: 20px; }
+#lobster-throbber > .lobster-busy { display: none; }
+#lobster-throbber[busy] > .lobster-idle { display: none; }
+#lobster-throbber[busy] > .lobster-busy { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  #lobster-throbber[busy] > .lobster-busy { display: none; }
+  #lobster-throbber[busy] > .lobster-idle { display: block; opacity: 0.6; }
+}
+
+/* The address bar lives in the top layer, above the splash; hide it while the splash shows */
+:root[lobster-splash] #urlbar { visibility: hidden !important; }

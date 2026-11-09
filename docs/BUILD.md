@@ -79,3 +79,10 @@ export MOZ_DEVELOPER_REPO_DIR=$PWD/engine MOZ_DEVELOPER_OBJ_DIR=$PWD/engine/obj-
 ```
 
 Packaged builds are not affected.
+
+### Splash and throbber
+
+- Files: `browser/src/browser/base/content/lobster/` (loaded by `browser.xhtml` through `browser-xhtml.patch`, packaged by `jar-mn.patch`).
+- The splash shows on the first window after each reboot (Linux boot id in `/proc/sys/kernel/random/boot_id`). Setting `lobster.splash.mode`: `boot` (default), `always` or `never`. Click or any key skips it; with reduce-motion it shows the still frame.
+- The throbber sits at the end of the toolbar; a dot orbits the ring while the current tab loads.
+- Chrome files are symlinked into local builds, so edits to them need no rebuild: just restart the browser.

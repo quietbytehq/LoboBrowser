@@ -1,0 +1,13 @@
+diff --git a/browser/components/newtab/AboutNewTabRedirector.sys.mjs b/browser/components/newtab/AboutNewTabRedirector.sys.mjs
+index 33ebe5111a15dcfba5c446efd1292cce4b29af34..4a9716a334d4d26b439371bd7301247538ac5cf1 100644
+--- a/browser/components/newtab/AboutNewTabRedirector.sys.mjs
++++ b/browser/components/newtab/AboutNewTabRedirector.sys.mjs
+@@ -425,6 +425,8 @@ class BaseAboutNewTabRedirector {
+    * the newtab page has no effect on the result of this function.
+    */
+   get defaultURL() {
++    // Lobster: our own calm, ad-free new tab page.
++    return "resource://newtab/prerendered/lobster-newtab.html";
+     if (this.remoteRendererEnabled) {
+       return "resource://newtab/data/content/remote-renderer-host.html";
+     }

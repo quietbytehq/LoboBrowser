@@ -1,0 +1,43 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; object-src 'none'; script-src resource:; style-src resource:; img-src resource: chrome: data:; form-action https:;" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>New Tab</title>
+    <link rel="icon" type="image/png" href="chrome://branding/content/icon32.png" />
+    <link rel="stylesheet" href="resource://newtab/prerendered/lobster-newtab.css" />
+    <script src="resource://newtab/prerendered/lobster-newtab.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div class="brand">
+        <img class="mark" src="resource://newtab/prerendered/lobster-mark.svg" alt="" />
+        <div class="clock">
+          <div id="time" class="time">--:--</div>
+          <div id="date" class="date"></div>
+        </div>
+      </div>
+
+      <form class="search" action="https://www.google.com/search" method="get" role="search">
+        <input id="q" name="q" type="search" placeholder="Search Google or type an address"
+               autocomplete="off" spellcheck="false" aria-label="Search" />
+      </form>
+
+      <nav class="shortcuts" aria-label="Shortcuts">
+        <a href="https://www.youtube.com/"><span class="tile">Y</span><span class="label">YouTube</span></a>
+        <a href="https://mail.google.com/"><span class="tile">M</span><span class="label">Gmail</span></a>
+        <a href="https://github.com/"><span class="tile">G</span><span class="label">GitHub</span></a>
+        <a href="https://en.wikipedia.org/"><span class="tile">W</span><span class="label">Wikipedia</span></a>
+        <a href="https://maps.google.com/"><span class="tile">P</span><span class="label">Maps</span></a>
+        <a href="https://drive.google.com/"><span class="tile">D</span><span class="label">Drive</span></a>
+      </nav>
+    </main>
+    <footer>Lobster Browser · no ads, no trackers on this page</footer>
+  </body>
+</html>

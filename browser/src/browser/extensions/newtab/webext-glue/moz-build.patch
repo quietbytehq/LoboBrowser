@@ -1,0 +1,15 @@
+diff --git a/browser/extensions/newtab/webext-glue/moz.build b/browser/extensions/newtab/webext-glue/moz.build
+index 777c9904482cb8cb7e8b36bc43060443710be37e..25456933a869af042d3a464087faedd26b88d993 100644
+--- a/browser/extensions/newtab/webext-glue/moz.build
++++ b/browser/extensions/newtab/webext-glue/moz.build
+@@ -53,6 +53,10 @@ FINAL_TARGET_FILES.data.css["nova"] += [
+ FINAL_TARGET_FILES.prerendered += [
+     "../prerendered/activity-stream-noscripts.html",
+     "../prerendered/activity-stream.html",
++    "../prerendered/lobster-mark.svg",
++    "../prerendered/lobster-newtab.css",
++    "../prerendered/lobster-newtab.html",
++    "../prerendered/lobster-newtab.js",
+ ]
+ 
+ # The following are resources that exist in other component folders that are
